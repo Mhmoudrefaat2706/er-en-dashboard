@@ -1,0 +1,29 @@
+name: Deploy to Hosting via FTP
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code from your repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+
+        
+      # Deploy to FTP server (only upload changed files)
+      - name: Upload files to FTP server
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: 192.250.234.56  # FTP server address
+          username: ${{ secrets.FTP_USERNAME }}  # Your FTP username stored as a secret 
+          password: ${{ secrets.FTP_PASSWORD }}  # Your FTP password stored as a secret 
+          local-dir: ./  # Local directory to deploy from
+          server-dir: /  # Path on your server
+          dry-run: false  # Set to false to actually upload
+          exclude: '**/.git*'  # Optionally exclude git files/folders
