@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ProjectController;
-use App\Http\Controllers\Frontend\SectionController;
+use App\Http\Controllers\Admin\SectionController;
 
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
