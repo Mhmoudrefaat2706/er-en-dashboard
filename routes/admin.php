@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\SectionController;
+use App\Http\Controllers\Admin\AdminProfileController;
 
 
 Route::get('login', [LoginController::class, 'create'])->name('login');
@@ -43,6 +44,8 @@ Route::prefix('admin')->middleware('auth:admin')->name('admin.')->group(function
     // Logout
     Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard.index');
+    Route::get('/profile', [AdminProfileController::class, 'show'])->name('profile.show');
+    Route::put('/profile', [AdminProfileController::class, 'update'])->name('profile.update');
 
     // Admins CRUD
     Route::get('admins', [AdminController::class, 'index'])->name('admins.index');

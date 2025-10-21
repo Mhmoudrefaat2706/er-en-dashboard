@@ -153,7 +153,7 @@
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block ms-1"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-center">
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{ route("admin.profile.show") }}">
                         <i class="ri-user-line me-1 align-middle"></i> {{ __('Profile') }}
                     </a>
                     <a class="dropdown-item" href="{{ route('admin.settings.index') }}">
